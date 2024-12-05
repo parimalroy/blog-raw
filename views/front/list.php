@@ -1,7 +1,6 @@
-
 <!-- Header -->
-<?php 
-$title="List Page -";
+<?php
+$title = "List Page -";
 include('partial/header.php')
 ?>
 
@@ -11,11 +10,13 @@ include('partial/header.php')
         <form class="flex flex-col md:flex-row items-center gap-6">
             <!-- Search -->
             <div class="flex-1 relative">
-                <input type="text" name="search" placeholder="Search blogs..." class="w-full px-4 py-3 border border-slate-300 rounded-full shadow-md focus:outline-none focus:ring focus:ring-slate-400" />
+                <input type="text" name="search" placeholder="Search blogs..."
+                    class="w-full px-4 py-3 border border-slate-300 rounded-full shadow-md focus:outline-none focus:ring focus:ring-slate-400" />
             </div>
             <!-- Filter by Category -->
             <div class="flex-1">
-                <select name="category" class="w-full px-4 py-3 border border-slate-300 rounded-full shadow-md focus:outline-none focus:ring focus:ring-slate-400">
+                <select name="category"
+                    class="w-full px-4 py-3 border border-slate-300 rounded-full shadow-md focus:outline-none focus:ring focus:ring-slate-400">
                     <option value="">Filter by category</option>
                     <option value="vuejs">Vue.js</option>
                     <option value="javascript">JavaScript</option>
@@ -25,7 +26,8 @@ include('partial/header.php')
             </div>
             <!-- Submit Button -->
             <div>
-                <button type="submit" class="px-6 py-3 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition">
+                <button type="submit"
+                    class="px-6 py-3 bg-slate-800 text-white rounded-full hover:bg-slate-700 transition">
                     Apply
                 </button>
             </div>
@@ -38,14 +40,15 @@ include('partial/header.php')
     <div class="container mx-auto">
         <h1 class="text-4xl font-extrabold text-slate-900 text-center mb-10">Explore Our Blogs</h1>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <?php foreach($posts as $post) {?>
+            <?php foreach ($posts as $post) { ?>
             <!-- Blog Card -->
             <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden transition duration-300">
                 <img src="https://via.placeholder.com/400x200" alt="Blog Post" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <h3 class="text-2xl font-bold text-slate-800 mb-2"><?= $post['blog_title'] ?></h3>
-                    <p class="text-gray-600 mb-4"><?php echo substr($post['content'],0,100)  ?></p>
-                    <a href="/blog-raw/details?id=<?php echo $post['id']?>" class="text-slate-800 font-medium hover:underline">Read More</a>
+                    <p class="text-gray-600 mb-4"><?php echo htmlspecialchars(substr($post['content'], 0, 100)) ?></p>
+                    <a href="/blog-raw/details?id=<?php echo $post['id'] ?>"
+                        class="text-slate-800 font-medium hover:underline">Read More</a>
                 </div>
             </div>
             <!-- Repeat similar cards for other blogs -->
@@ -61,10 +64,13 @@ include('partial/header.php')
                 </a>
                 <!-- Page Numbers -->
                 <a href="#" class="px-4 py-2 bg-slate-800 text-white rounded-full font-bold">1</a>
-                <a href="#" class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">2</a>
-                <a href="#" class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">3</a>
+                <a href="#"
+                    class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">2</a>
+                <a href="#"
+                    class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">3</a>
                 <span class="px-4 py-2 text-slate-400">...</span>
-                <a href="#" class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">10</a>
+                <a href="#"
+                    class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">10</a>
                 <!-- Next Button -->
                 <a href="#" class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">
                     Next
@@ -75,5 +81,4 @@ include('partial/header.php')
 </section>
 
 <!-- Footer -->
-<?php include('partial/footer.php')?>
-
+<?php include('partial/footer.php') ?>

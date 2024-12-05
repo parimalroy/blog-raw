@@ -1,6 +1,4 @@
-<?php 
-require ('config.php');
+<?php
+require('config.php');
 include('database.php');
-include('route/routes.php');
-?>
-
+include('routes.php');

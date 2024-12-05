@@ -1,6 +1,7 @@
 <?php
-class Database{
- public $connection;
+class Database
+{
+    public $connection;
 
     public function __construct($config, $username = 'root', $password = '')
     {
@@ -19,5 +20,4 @@ class Database{
 
         return $statement;
     }
-
 }

@@ -7,8 +7,8 @@
     <title><?php echo $title ?> - Blogify</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
-        <!-- Include CKEditor CDN create php cdn-->
-        <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script>
+    <!-- Include CKEditor CDN create php cdn-->
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script>
 </head>
 
 <body class="bg-slate-50 font-sans">

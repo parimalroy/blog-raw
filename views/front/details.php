@@ -1,9 +1,8 @@
-
 <!-- Header -->
 <?php
-$title="Details Page";
- include('partial/header.php') 
- ?>
+$title = "Details Page";
+include('partial/header.php')
+?>
 
 
 <!-- Blog Details -->
@@ -11,21 +10,22 @@ $title="Details Page";
     <div class="container mx-auto px-6 py-12">
         <!-- Blog Header -->
         <div class="text-center">
-            <h1 class="text-4xl font-extrabold text-slate-900 mb-4"><?= $post['blog_title']?></h1>
-            <p class="text-slate-500 text-lg">Published on <span class="font-medium"><?= $post['publish_date']?></span></p>
+            <h1 class="text-4xl font-extrabold text-slate-900 mb-4"><?= $post['blog_title'] ?></h1>
+            <p class="text-slate-500 text-lg">Published on <span class="font-medium"><?= $post['publish_date'] ?></span>
+            </p>
         </div>
         <!-- Blog Image -->
         <div class="mt-8 text-center">
-            <img src="https://via.placeholder.com/800x400" alt="Blog Banner" class="w-full md:w-3/4 lg:w-2/3 mx-auto rounded-lg shadow-md">
+            <img src="https://via.placeholder.com/800x400" alt="Blog Banner"
+                class="w-full md:w-3/4 lg:w-2/3 mx-auto rounded-lg shadow-md">
         </div>
-        <!-- Blog Content -->
         <!-- Blog Content -->
         <div class="mt-12 mx-auto md:w-3/4 lg:w-2/3">
             <div class="bg-white p-8 rounded-lg shadow-lg">
                 <!-- <h2 class="text-3xl font-bold text-slate-900 mb-6">Introduction to Vue.js</h2> -->
                 <p class="text-slate-700 text-lg leading-relaxed mb-6">
                     <!-- Vue.js is a progressive JavaScript framework used for building user interfaces. Unlike monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. -->
-                     <?= $post['content']?>
+                    <?= htmlspecialchars($post['content']) ?>
                 </p>
                 <!-- <h3 class="text-2xl font-semibold text-slate-800 mb-4">Why Choose Vue.js?</h3>
                 <ul class="list-disc list-inside text-slate-700 text-lg mb-6 space-y-2">
@@ -37,7 +37,7 @@ $title="Details Page";
                     Below is an example of a Vue.js component:
                 </p> -->
                 <div class="bg-slate-900 text-white text-sm rounded-md p-4 overflow-auto">
-                        <pre>
+                    <pre>
                         <code>
                         &lt;template&gt;
                         &lt;div&gt;Hello, {{ name }}!&lt;/div&gt;
@@ -54,7 +54,7 @@ $title="Details Page";
                         &lt;/script&gt;
                         </code>
                         </pre>
-                 </div>
+                </div>
                 <!-- <h3 class="text-2xl font-semibold text-slate-800 mt-8 mb-4">Conclusion</h3>
                 <p class="text-slate-700 text-lg leading-relaxed">
                     Start using Vue.js today to build modern web applications with ease. Its simplicity and flexibility make it a great choice for developers of all experience levels.
@@ -75,7 +75,8 @@ $title="Details Page";
                 <img src="https://via.placeholder.com/400x200" alt="Blog Thumbnail" class="w-full">
                 <div class="p-4">
                     <h3 class="text-xl font-bold text-slate-900 mb-2">Top Vue.js Libraries in 2024</h3>
-                    <p class="text-slate-600 text-sm">A list of essential Vue.js libraries to speed up your development process.</p>
+                    <p class="text-slate-600 text-sm">A list of essential Vue.js libraries to speed up your development
+                        process.</p>
                     <a href="#" class="text-slate-700 font-medium hover:underline mt-4 inline-block">Read More</a>
                 </div>
             </div>
@@ -86,4 +87,3 @@ $title="Details Page";
 
 <!-- Footer -->
 <?php include('partial/footer.php') ?>
-

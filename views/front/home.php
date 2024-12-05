@@ -1,18 +1,19 @@
-
 <!-- Header -->
-<?php 
-$title="Home Page";
-include('partial/header.php') 
+<?php
+$title = "Home Page";
+include('partial/header.php')
 ?>
 
-<?php //include('partial/helper.php') ?>
+<?php //include('partial/helper.php') 
+?>
 
 <!-- Hero Section -->
 <section class="bg-slate-800 text-white py-20">
     <div class="container mx-auto text-center">
         <h1 class="text-5xl font-extrabold mb-4">Welcome to Blogify</h1>
         <p class="text-lg font-medium mb-6">Discover the latest in tech, programming, and design inspired by Vue.js.</p>
-        <a href="#posts" class="px-6 py-3 bg-slate-700 text-white font-bold rounded-lg shadow-md hover:bg-slate-600 transition duration-300">
+        <a href="#posts"
+            class="px-6 py-3 bg-slate-700 text-white font-bold rounded-lg shadow-md hover:bg-slate-600 transition duration-300">
             Browse Posts
         </a>
     </div>
@@ -36,7 +37,8 @@ include('partial/header.php')
             <img src="https://via.placeholder.com/400x200" alt="Blog Post" class="rounded-t-lg">
             <div class="p-6">
                 <h3 class="text-2xl font-bold text-slate-800 mb-2">Top Vue.js Libraries in 2024</h3>
-                <p class="text-gray-600 mb-4">A list of essential Vue.js libraries to speed up your development process.</p>
+                <p class="text-gray-600 mb-4">A list of essential Vue.js libraries to speed up your development process.
+                </p>
                 <a href="#" class="text-slate-600 font-medium hover:underline">Read More</a>
             </div>
         </div>
@@ -45,7 +47,8 @@ include('partial/header.php')
             <img src="https://via.placeholder.com/400x200" alt="Blog Post" class="rounded-t-lg">
             <div class="p-6">
                 <h3 class="text-2xl font-bold text-slate-800 mb-2">Mastering Vue Router</h3>
-                <p class="text-gray-600 mb-4">Learn how to effectively manage navigation in your Vue.js applications.</p>
+                <p class="text-gray-600 mb-4">Learn how to effectively manage navigation in your Vue.js applications.
+                </p>
                 <a href="#" class="text-slate-600 font-medium hover:underline">Read More</a>
             </div>
         </div>
@@ -54,5 +57,3 @@ include('partial/header.php')
 
 <!-- Footer -->
 <?php include('partial/footer.php') ?>
-
-
