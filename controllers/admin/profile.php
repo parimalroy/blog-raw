@@ -1,2 +1,3 @@
 <?php
-include("views/admin/profile.php");
+// include("views/admin/profile.php");
+view('admin', 'profile');

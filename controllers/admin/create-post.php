@@ -1,5 +1,6 @@
 <?php
-$config = require('config.php');
+// $config = require('config.php');
+$config = require base_path('config.php');
 $db = new Database($config['database']);
 
 
@@ -32,4 +33,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         ]);
     }
 }
-require 'views/admin/create.php';
+// require 'views/admin/create.php';
+view('admin', 'create', [
+    'errors' => $errors
+]);

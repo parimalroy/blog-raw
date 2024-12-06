@@ -47,7 +47,7 @@ include('partial/header.php')
                 <div class="p-6">
                     <h3 class="text-2xl font-bold text-slate-800 mb-2"><?= $post['blog_title'] ?></h3>
                     <p class="text-gray-600 mb-4"><?php echo htmlspecialchars(substr($post['content'], 0, 100)) ?></p>
-                    <a href="/blog-raw/details?id=<?php echo $post['id'] ?>"
+                    <a href="/details?id=<?php echo $post['id'] ?>"
                         class="text-slate-800 font-medium hover:underline">Read More</a>
                 </div>
             </div>

@@ -21,4 +21,5 @@
 
 
 
-include("views/admin/create.php");
+// include("views/admin/create.php");
+view('admin', 'create');

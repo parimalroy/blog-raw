@@ -30,11 +30,9 @@ include('partials/header.php')
                 <!-- Dropdown -->
                 <div id="profile-menu"
                     class="absolute right-0 mt-2 w-48 bg-white border border-slate-200 rounded-lg shadow-lg hidden">
-                    <a href="/blog-raw/admin/profile"
-                        class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Profile</a>
-                    <a href="/blog-raw/admin/setting"
-                        class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Settings</a>
-                    <a href="/blog-raw/admin/login" class="block px-4 py-2 text-red-600 hover:bg-red-50">Logout</a>
+                    <a href="/admin/profile" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Profile</a>
+                    <a href="/admin/setting" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Settings</a>
+                    <a href="/admin/login" class="block px-4 py-2 text-red-600 hover:bg-red-50">Logout</a>
                 </div>
             </div>
         </header>
@@ -52,7 +50,7 @@ include('partials/header.php')
         <section id="blogs-section" class="p-6">
             <h2 class="text-2xl font-bold text-slate-800 mb-4">Manage Blogs</h2>
             <div class="mb-6">
-                <a href="/blog-raw/admin/create"
+                <a href="/admin/create"
                     class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-500 transition">Create
                     New Blog</a>
             </div>
