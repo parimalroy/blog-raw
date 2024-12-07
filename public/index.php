@@ -10,7 +10,8 @@ require BASE_PATH . 'function.php';
 
 spl_autoload_register(function ($class) {
     // dd($class);
-    require base_path("core/" . $class . ".php");
+    $class = str_replace("\\", DIRECTORY_SEPARATOR, $class);
+    require base_path($class . ".php");
 });
 
 require base_path('route.php');

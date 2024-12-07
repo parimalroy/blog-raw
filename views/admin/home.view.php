@@ -65,15 +65,21 @@ include('partials/header.php')
                         </tr>
                     </thead>
                     <tbody>
+                        <?php foreach ($posts as $post) : ?>
                         <tr class="hover:bg-slate-50">
-                            <td class="py-3 px-4">How to Build Vue.js Applications</td>
+                            <td class="py-3 px-4"><?= $post['blog_title'] ?></td>
                             <td class="py-3 px-4">John Doe</td>
-                            <td class="py-3 px-4">15 Nov 2024</td>
+                            <td class="py-3 px-4"><?= $post['publish_date'] ?></td>
                             <td class="py-3 px-4 flex space-x-4">
                                 <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                                <a href="#" class="text-red-600 hover:underline">Delete</a>
+                                <form action="/admin/delete" method="POST">
+                                    <input type="hidden" name="id" value="<?= $post['id'] ?>">
+                                    <button class="text-sm text-red-500">Delete</button>
+                                    <!-- <a href="#" class="text-red-600 hover:underline">Delete</a> -->
+                                </form>
                             </td>
                         </tr>
+                        <?php endforeach ?>
                         <!-- Repeat similar rows -->
                     </tbody>
                 </table>

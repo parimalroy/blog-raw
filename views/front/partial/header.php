@@ -34,8 +34,8 @@
                 <a href="/list"
                     class="hover:underline text-slate-300 px-4 py-2 rounded-md <?php echo urls("/list") ? 'bg-slate-700 font-bold text-white' : ''; ?>">List</a>
 
-                <a href="/details"
-                    class="hover:underline text-slate-300 px-4 py-2 rounded-md <?php echo urls("/details") ? 'bg-slate-700 font-bold text-white' : ''; ?>">Details</a>
+                <a href="/category"
+                    class="hover:underline text-slate-300 px-4 py-2 rounded-md <?php echo urls("/category") ? 'bg-slate-700 font-bold text-white' : ''; ?>">Category</a>
             </nav>
         </div>
 

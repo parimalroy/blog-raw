@@ -1,4 +1,7 @@
 <?php
+
+namespace core;
+
 class Validator
 {
     public static function length($value, $min = 1, $max = INF)

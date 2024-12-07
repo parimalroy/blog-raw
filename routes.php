@@ -9,12 +9,14 @@ $routes = [
         '/admin/setting' => 'controllers/admin/setting.php',
         '/admin/login' => 'controllers/admin/login.php',
         '/admin/insert' => 'controllers/admin/create-post.php',
+        '/admin/delete' => 'controllers/admin/delete-post.php',
     ],
 
     'front' => [
         '/' => 'controllers/front/home.php',
         '/list' => 'controllers/front/list.php',
-        '/details' => 'controllers/front/details.php'
+        '/details' => 'controllers/front/details.php',
+        '/category' => 'controllers/front/category.php'
     ]
 
 ];
