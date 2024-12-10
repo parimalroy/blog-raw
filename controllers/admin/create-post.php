@@ -1,10 +1,13 @@
 <?php
 // $config = require('config.php');
+use core\App;
 use core\Database;
 use core\Validator;
 
-$config = require base_path('config.php');
-$db = new Database($config['database']);
+// $config = require base_path('config.php');
+// $db = new Database($config['database']);
+$db = App::resolve(Database::class);
+
 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
