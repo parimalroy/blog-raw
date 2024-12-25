@@ -23,7 +23,8 @@ include('partials/header.php')
 
         <!-- Blog Creation Form -->
         <section class="p-6">
-            <form action="/admin/insert" method="POST" class="bg-white p-6 rounded-lg shadow-lg">
+            <form action="/admin/insert" method="POST" enctype="multipart/form-data"
+                class="bg-white p-6 rounded-lg shadow-lg">
                 <div class="mb-6">
                     <label for="title" class="block text-slate-700 font-medium mb-2">Blog Title</label>
                     <input type="text" id="title" name="title"
@@ -65,14 +66,21 @@ include('partials/header.php')
 
                 <div class="mb-6">
                     <label for="category" class="block text-slate-700 font-medium mb-2">Category</label>
-                    <select id="category" name="category"
+                    <select id="category" name="category_id"
                         class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400">
                         <option value="">Select Category</option>
-                        <option value="vuejs">Vue.js</option>
-                        <option value="javascript">JavaScript</option>
-                        <option value="frontend">Frontend</option>
-                        <option value="backend">Backend</option>
+                        <?php foreach ($categories as $category) : ?>
+                        <option value="<?= $category['id'] ?>"><?= $category['category_name'] ?>
+                        </option>
+                        <?php endforeach ?>
+
                     </select>
+                </div>
+                <div class="mb-6">
+                    <label for="cover_photo" class="block text-slate-700 font-medium mb-2">Cover Photo</label>
+                    <input type="file" id="cover_photo" name="cover_photo"
+                        class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400">
+
                 </div>
 
                 <div class="flex justify-end">

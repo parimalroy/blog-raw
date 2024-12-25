@@ -16,7 +16,7 @@ include('partial/header.php')
         </div>
         <!-- Blog Image -->
         <div class="mt-8 text-center">
-            <img src="https://via.placeholder.com/800x400" alt="Blog Banner"
+            <img src="images/<?php echo $post['cover_photo'] ?>" alt="Blog Banner"
                 class="w-full md:w-3/4 lg:w-2/3 mx-auto rounded-lg shadow-md">
         </div>
         <!-- Blog Content -->
@@ -25,7 +25,7 @@ include('partial/header.php')
                 <!-- <h2 class="text-3xl font-bold text-slate-900 mb-6">Introduction to Vue.js</h2> -->
                 <p class="text-slate-700 text-lg leading-relaxed mb-6">
                     <!-- Vue.js is a progressive JavaScript framework used for building user interfaces. Unlike monolithic frameworks, Vue is designed from the ground up to be incrementally adoptable. -->
-                    <?= htmlspecialchars($post['content']) ?>
+                    <?= htmlspecialchars($post['content'] ?? '') ?>
                 </p>
                 <!-- <h3 class="text-2xl font-semibold text-slate-800 mb-4">Why Choose Vue.js?</h3>
                 <ul class="list-disc list-inside text-slate-700 text-lg mb-6 space-y-2">

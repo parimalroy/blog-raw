@@ -9,7 +9,9 @@ use core\Database;
 $db = App::resolve(Database::class);
 
 
-$posts = $db->query('select * from posts')->fetchAll();
+$posts = $db->query('select * from posts order by id desc')->fetchAll();
+
+// var_dump($posts);
 
 // include('views/front/list.php');
 view('front', 'list', ['posts' => $posts]);

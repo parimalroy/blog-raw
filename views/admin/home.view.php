@@ -68,7 +68,7 @@ include('partials/header.php')
                         <?php foreach ($posts as $post) : ?>
                         <tr class="hover:bg-slate-50">
                             <td class="py-3 px-4"><?= $post['blog_title'] ?></td>
-                            <td class="py-3 px-4">John Doe</td>
+                            <td class="py-3 px-4"><?= $post['author'] ?></td>
                             <td class="py-3 px-4"><?= $post['publish_date'] ?></td>
                             <td class="py-3 px-4 flex space-x-4">
                                 <a href="#" class="text-blue-600 hover:underline">Edit</a>

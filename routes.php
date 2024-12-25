@@ -8,11 +8,14 @@ $router->get('/admin/profile', 'controllers/admin/profile.php');
 $router->get('/admin/login', 'controllers/admin/login.php');
 $router->post('/admin/insert', 'controllers/admin/create-post.php');
 $router->post('/admin/delete', 'controllers/admin/delete-post.php');
+// $router->get('/admin/category', 'controllers/front/category.php');
 
 $router->get('/', 'controllers/front/home.php');
 $router->get('/list', 'controllers/front/list.php');
 $router->get('/details', 'controllers/front/details.php');
 $router->get('/category', 'controllers/front/category.php');
+$router->get('/category', 'controllers/front/category.php');
+$router->get('/category-single', 'controllers/front/category-single.php');
 
 
 

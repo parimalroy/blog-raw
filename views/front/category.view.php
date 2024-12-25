@@ -21,14 +21,25 @@ include('partial/header.php')
     <h2 class="text-3xl font-bold text-slate-900 text-center mb-10">All Blog Category</h2>
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Blog Card 1 -->
+        <?php foreach ($categories as $category) : ?>
         <div class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
-            <img src="https://via.placeholder.com/400x200" alt="Blog Post" class="rounded-t-lg">
+            <!-- <img src="https://via.placeholder.com/400x200" alt="Blog Post" class="rounded-t-lg"> -->
             <div class="p-6">
-                <h3 class="text-2xl font-bold text-slate-800 mb-2">How to Build Vue.js Applications</h3>
+                <h3 class="text-2xl font-bold text-slate-800 mb-2">
+                    <?= $category['category_name'] ?>
+                    <?php foreach ($counts as $count) : ?>
+                    <?php if ($category['category_name'] === $count['category_name']): ?>
+                    (<?= $count['count(category_id)']  ?>)
+                    <?php endif ?>
+                    <?php endforeach ?>
+
+                </h3>
                 <p class="text-gray-600 mb-4">Explore tips and tools for creating modern, scalable Vue.js apps.</p>
-                <a href="#" class="text-slate-600 font-medium hover:underline">Read More</a>
+                <a href="/category-single?id=<?= $category['id'] ?>"
+                    class="text-slate-600 font-medium hover:underline">Show All</a>
             </div>
         </div>
+        <?php endforeach ?>
     </div>
 </main>
 
