@@ -1,5 +1,6 @@
 <?php
-
+session_start();
+// session_destroy();
 const BASE_PATH = __DIR__ . '/../';
 
 // include('database.php');

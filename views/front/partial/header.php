@@ -36,6 +36,19 @@
 
                 <a href="/category"
                     class="hover:underline text-slate-300 px-4 py-2 rounded-md <?php echo urls("/category") ? 'bg-slate-700 font-bold text-white' : ''; ?>">Category</a>
+                <!-- <a href="/login-user"
+                    class="hover:underline text-slate-300 px-4 py-2 rounded-md <?php echo urls("/login-user") ? 'bg-slate-700 font-bold text-white' : ''; ?>">Log
+                    In</a> -->
+                <?php if ($_SESSION['user'] ?? false) : ?>
+                <a href=""
+                    class="hover:underline text-slate-300 px-4 py-2 rounded-md <?php echo urls("/login-user") ? 'bg-slate-700 font-bold text-white' : ''; ?>">
+                    <?php echo isset($_SESSION['user']) ?  "Welcome-" . $_SESSION['user']['email'] : ''; ?>
+                </a>
+                <a href="/logout" class="hover:underline text-slate-300 px-4 py-2 rounded-md">Log out</a>
+
+                <?php else : ?>
+                <a href="/login-user" class="hover:underline text-slate-300 px-4 py-2 rounded-md">Log In</a>
+                <?php endif; ?>
             </nav>
         </div>
 
