@@ -38,14 +38,15 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // dd($categories);
     // var_dump($file_name);
     if (empty($errors)) {
-        $db->query("INSERT INTO posts(blog_title,author,publish_date,content,category_id,cover_photo)values
-        (:title,:author,:publish_date,:content,:category_id,:cover_photo)", [
+        $db->query("INSERT INTO posts(blog_title,author,publish_date,content,category_id,cover_photo,users_id)values
+        (:title,:author,:publish_date,:content,:category_id,:cover_photo,:users_id)", [
             'title'   => $_POST['title'],
             'author'       => $_POST['author'],
             'publish_date' => $_POST['publish_date'],
             'content'      => $_POST['content'],
             'category_id'     => $_POST['category_id'],
             'cover_photo'     => $file_name,
+            'users_id' => $_SESSION['user']['id']
         ]);
         move_uploaded_file($tmpName, $folder);
     }

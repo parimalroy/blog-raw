@@ -17,9 +17,13 @@ include('partials/header.php')
             <h1 class="text-3xl font-bold text-slate-800">Dashboard</h1>
             <!-- Profile Dropdown -->
             <div class="relative">
+
                 <button id="profile-menu-button" class="flex items-center space-x-3 focus:outline-none">
-                    <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full">
-                    <span class="hidden md:block text-slate-800 font-medium">John Doe</span>
+                    <a href="/" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Visit Site</a>
+
+                    <!-- <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full"> -->
+                    <span
+                        class="hidden md:block text-slate-800 font-medium"><?php echo $_SESSION['user']['name'] ?></span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-600" viewBox="0 0 20 20"
                         fill="currentColor">
                         <path fill-rule="evenodd"
@@ -32,7 +36,7 @@ include('partials/header.php')
                     class="absolute right-0 mt-2 w-48 bg-white border border-slate-200 rounded-lg shadow-lg hidden">
                     <a href="/admin/profile" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Profile</a>
                     <a href="/admin/setting" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Settings</a>
-                    <a href="/admin/login" class="block px-4 py-2 text-red-600 hover:bg-red-50">Logout</a>
+                    <a href="/logout" class="block px-4 py-2 text-red-600 hover:bg-red-50">Logout</a>
                 </div>
             </div>
         </header>
@@ -40,11 +44,32 @@ include('partials/header.php')
         <!-- Dashboard Content -->
         <section id="dashboard-section" class="p-6">
             <div class="bg-white p-6 rounded-lg shadow-lg">
-                <h2 class="text-2xl font-bold text-slate-800 mb-4">Welcome Back, John Doe!</h2>
+                <h2 class="text-2xl font-bold text-slate-800 mb-4">Welcome Back, <?php echo $_SESSION['user']['name'] ?>
+                </h2>
                 <p class="text-slate-600">This is your dashboard. From here, you can manage your blogs, users, and
                     account settings.</p>
             </div>
         </section>
+        <!-- Users Management Section -->
+        <section id="users-section" class="p-6">
+            <div class="bg-white p-6 rounded-lg shadow-lg">
+                <h2 class="text-2xl font-bold text-slate-800 mb-4">Your Posts Summary</h2>
+                <i class="border-r-4">
+                    <span class="text-base font-bold text-blue-600 mx-4">Published Post:
+                        <?= $totalPost['count(blog_title )'] ?? false ?></span>
+                </i>
+                <i class="border-r-4">
+                    <span class="text-base font-bold text-red-600 mx-4">Deleted Post:
+                        <?= $_SESSION['count'] ?? 0 ?></span>
+                </i>
+                <i class="border-r-4">
+                    <span class="text-base font-bold text-green-600 mx-4">Latest Post Title:
+                        <?= $blogTitle['blog_title'] ?? false ?></span>
+                </i>
+                <!-- <p class="text-slate-600">User management functionality will go here.</p> -->
+            </div>
+        </section>
+        <hr />
 
         <!-- Blog Management Section -->
         <section id="blogs-section" class="p-6">
@@ -86,17 +111,13 @@ include('partials/header.php')
             </div>
         </section>
 
-        <!-- Users Management Section -->
-        <section id="users-section" class="p-6">
-            <h2 class="text-2xl font-bold text-slate-800 mb-4">Manage Users</h2>
-            <p class="text-slate-600">User management functionality will go here.</p>
-        </section>
+
 
         <!-- Settings Section -->
-        <section id="settings-section" class="p-6">
+        <!-- <section id="settings-section" class="p-6">
             <h2 class="text-2xl font-bold text-slate-800 mb-4">Settings</h2>
             <p class="text-slate-600">Settings functionality will go here.</p>
-        </section>
+        </section> -->
     </main>
 </div>
 

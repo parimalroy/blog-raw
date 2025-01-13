@@ -24,15 +24,17 @@ if (! empty($errors)) {
     ]);
 }
 
-$user = $db->query('select * from users where email = :email', [
-    'email' => $email
+$user = $db->query('select id,name,email,password from users where email = :email', [
+    'email' => $email,
 ])->fetch();
 
 if ($user) {
     if (password_verify($password, $user['password'])) {
         login([
             'email' => $email,
-            'name' => 'name'
+            'name' => $user['name'],
+            'id' => $user['id'],
+
         ]);
 
         header('location: /');

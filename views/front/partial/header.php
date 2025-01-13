@@ -42,8 +42,9 @@
                 <?php if ($_SESSION['user'] ?? false) : ?>
                 <a href=""
                     class="hover:underline text-slate-300 px-4 py-2 rounded-md <?php echo urls("/login-user") ? 'bg-slate-700 font-bold text-white' : ''; ?>">
-                    <?php echo isset($_SESSION['user']) ?  "Welcome-" . $_SESSION['user']['email'] : ''; ?>
+                    <?php echo isset($_SESSION['user']) ?  "Welcome-" . $_SESSION['user']['name'] : ''; ?>
                 </a>
+                <a href="/admin" class="hover:underline text-slate-300 px-4 py-2 rounded-md">Dashboard</a>
                 <a href="/logout" class="hover:underline text-slate-300 px-4 py-2 rounded-md">Log out</a>
 
                 <?php else : ?>
