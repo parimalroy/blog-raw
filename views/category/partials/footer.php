@@ -76,6 +76,27 @@ function previewFavicon(event) {
     reader.readAsDataURL(event.target.files[0]);
 }
 </script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<?php
+if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
+?>
+<script>
+Swal.fire({
+    position: "top-end",
+    icon: "<?php echo $_SESSION['status_code'] ?>",
+    title: "<?php echo $_SESSION['status'] ?>",
+    showConfirmButton: false,
+    timer: 2500
+});
+</script>
+<?php
+    unset($_SESSION['status']);
+} else {
+}
+
+?>
 </body>
 
 </html>

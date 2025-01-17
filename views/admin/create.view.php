@@ -1,96 +1,90 @@
 <?php
-$title = "Create New Blog";
+$title = "Edit Profile";
 include('partials/header.php')
 ?>
 
-<!-- Sidebar and Main Content Container -->
+<!-- Dashboard Layout -->
 <div class="flex min-h-screen">
     <!-- Sidebar -->
     <?php
     $users = "Users";
-    $setting = "Setting";
-    include('partials/sidebar.php');
-
+    $editProfile = "Edit Profile";
+    include('partials/sidebar.php')
     ?>
 
     <!-- Main Content -->
-    <main class="flex-grow">
+    <main class="flex-grow bg-white">
         <!-- Header -->
         <?php
-        $heads = "Create New Blog";
+        $heads = "Edit Profile";
         include('partials/title.php')
         ?>
 
-        <!-- Blog Creation Form -->
-        <section class="p-6">
-            <form action="/admin/insert" method="POST" enctype="multipart/form-data"
-                class="bg-white p-6 rounded-lg shadow-lg">
-                <div class="mb-6">
-                    <label for="title" class="block text-slate-700 font-medium mb-2">Blog Title</label>
-                    <input type="text" id="title" name="title"
-                        class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400"
-                        placeholder="Enter the blog title">
-                    <?php if (isset($errors['title'])): ?>
-                    <p class="text-red-500 text-xl mt-2"><?= $errors['title'] ?></p>
-                    <?php endif ?>
-                </div>
+        <!-- Profile Edit Form -->
+        <section class="p-8">
+            <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md p-8">
+                <form action="#" method="POST" enctype="multipart/form-data">
+                    <!-- Profile Picture Section -->
+                    <div class="flex items-center justify-center mb-8">
+                        <div class="relative">
+                            <img id="profile-image-preview" src="https://via.placeholder.com/120" alt="Profile Picture"
+                                class="w-32 h-32 rounded-full object-cover shadow">
+                            <label for="profile_picture"
+                                class="absolute bottom-0 right-0 bg-blue-600 text-white p-2 rounded-full cursor-pointer hover:bg-blue-500 transition">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                    stroke="currentColor" class="w-5 h-5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                                </svg>
+                            </label>
+                            <input type="file" id="profile_picture" name="profile_picture" class="hidden"
+                                accept="image/*" onchange="previewProfileImage(event)">
+                        </div>
+                    </div>
 
-                <div class="mb-6">
-                    <label for="author" class="block text-slate-700 font-medium mb-2">Author</label>
-                    <input type="text" id="author" name="author"
-                        class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400"
-                        placeholder="Enter the author name">
-                    <?php if (isset($errors['author'])): ?>
-                    <p class="text-red-500 text-xl mt-2"><?= $errors['author'] ?></p>
-                    <?php endif ?>
-                </div>
+                    <!-- Full Name -->
+                    <div class="mb-6">
+                        <label for="name" class="block text-slate-700 font-medium mb-2">Full Name</label>
+                        <input type="text" id="name" name="name" value="John Doe"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400"
+                            required>
+                    </div>
 
-                <div class="mb-6">
-                    <label for="publish_date" class="block text-slate-700 font-medium mb-2">Publish Date</label>
-                    <input type="date" id="publish_date" name="publish_date"
-                        class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400">
-                    <?php if (isset($errors['publish_date'])): ?>
-                    <p class="text-red-500 text-xl mt-2"><?= $errors['publish_date'] ?></p>
-                    <?php endif ?>
-                </div>
+                    <!-- Email -->
+                    <div class="mb-6">
+                        <label for="email" class="block text-slate-700 font-medium mb-2">Email</label>
+                        <input type="email" id="email" name="email" value="johndoe@example.com"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400"
+                            required>
+                    </div>
 
-                <div class="mb-6">
-                    <label for="content" class="block text-slate-700 font-medium mb-2">Content</label>
-                    <textarea id="content" name="content"
-                        class="w-full h-64 px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400"
-                        placeholder="Write your blog content here..."></textarea>
-                    <?php if (isset($errors['content'])): ?>
-                    <p class="text-red-500 text-xl mt-2"><?= $errors['content'] ?></p>
-                    <?php endif ?>
-                </div>
+                    <!-- Password -->
+                    <div class="mb-6">
+                        <label for="password" class="block text-slate-700 font-medium mb-2">New Password</label>
+                        <input type="password" id="password" name="password"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400"
+                            placeholder="Enter new password (optional)">
+                    </div>
 
-                <div class="mb-6">
-                    <label for="category" class="block text-slate-700 font-medium mb-2">Category</label>
-                    <select id="category" name="category_id"
-                        class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400">
-                        <option value="">Select Category</option>
-                        <?php foreach ($categories as $category) : ?>
-                        <option value="<?= $category['id'] ?>"><?= $category['category_name'] ?>
-                        </option>
-                        <?php endforeach ?>
+                    <!-- Confirm Password -->
+                    <div class="mb-6">
+                        <label for="confirm_password" class="block text-slate-700 font-medium mb-2">Confirm
+                            Password</label>
+                        <input type="password" id="confirm_password" name="confirm_password"
+                            class="w-full px-4 py-3 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400"
+                            placeholder="Confirm new password">
+                    </div>
 
-                    </select>
-                </div>
-                <div class="mb-6">
-                    <label for="cover_photo" class="block text-slate-700 font-medium mb-2">Cover Photo</label>
-                    <input type="file" id="cover_photo" name="cover_photo"
-                        class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400">
-
-                </div>
-
-                <div class="flex justify-end">
-                    <button type="submit"
-                        class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition">Publish
-                        Blog</button>
-                </div>
-            </form>
+                    <!-- Buttons -->
+                    <div class="flex justify-end space-x-4">
+                        <a href="#"
+                            class="px-6 py-3 bg-red-600 text-white font-bold rounded-lg hover:bg-red-500 transition">Cancel</a>
+                        <button type="submit"
+                            class="px-6 py-3 bg-blue-600 text-white font-bold rounded-lg hover:bg-blue-500 transition">Save
+                            Changes</button>
+                    </div>
+                </form>
+            </div>
         </section>
     </main>
 </div>
-
 <?php include('partials/footer.php') ?>

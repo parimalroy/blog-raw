@@ -8,13 +8,13 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-slate-50 font-sans min-h-screen flex items-center justify-center">
-    <div class="w-full max-w-md bg-white rounded-lg shadow-lg p-6">
+<body class="bg-sky-800 font-sans min-h-screen flex items-center justify-center">
+    <div class="w-full max-w-md bg-sky-100 rounded-lg shadow-lg p-6">
         <h1 class="text-2xl font-bold text-slate-800 mb-6 text-center">Create Your Account</h1>
         <form action="/store-user" method="POST">
             <div class="mb-4">
                 <label for="name" class="block text-slate-700 font-medium mb-2">Full Name</label>
-                <input type="text" id="name" name="name"
+                <input type="text" id="name" name="name" value="<?= old('name') ?>"
                     class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400"
                     placeholder="Enter your full name">
                 <?php if (isset($errors['name'])) : ?>
@@ -23,7 +23,7 @@
             </div>
             <div class="mb-4">
                 <label for="email" class="block text-slate-700 font-medium mb-2">Email</label>
-                <input type="email" id="email" name="email"
+                <input type="email" id="email" name="email" value="<?= old('email') ?>"
                     class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400"
                     placeholder="Enter your email">
                 <?php if (isset($errors['email'])) : ?>
@@ -46,6 +46,25 @@
         <p class="text-center text-slate-600 mt-4">Already have an account? <a href="/login-user"
                 class="text-slate-800 font-bold hover:underline">Login</a></p>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <?php
+    if (isset($_SESSION['status']) && $_SESSION['status'] != '') {
+    ?>
+    <script>
+    Swal.fire({
+        position: "top-end",
+        icon: "<?php echo $_SESSION['status_code'] ?>",
+        title: "<?php echo $_SESSION['status'] ?>",
+        showConfirmButton: false,
+        timer: 1500
+    });
+    </script>
+    <?php
+        unset($_SESSION['status']);
+    } else {
+    }
+
+    ?>
 </body>
 
 </html>

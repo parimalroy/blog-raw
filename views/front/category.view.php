@@ -8,7 +8,7 @@ include('partial/header.php')
 ?>
 
 <!-- Hero Section -->
-<section class="bg-slate-800 text-white py-20">
+<section class="bg-sky-800 text-white py-20">
     <div class="container mx-auto text-center">
         <h1 class="text-5xl font-extrabold mb-4">Blog Category</h1>
         <p class="text-lg font-medium mb-6">Discover the latest in tech, programming, and design inspired by Vue.js.</p>
@@ -22,7 +22,7 @@ include('partial/header.php')
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <!-- Blog Card 1 -->
         <?php foreach ($categories as $category) : ?>
-        <div class="bg-white rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
+        <div class="bg-sky-200 rounded-lg shadow-lg hover:shadow-2xl transition duration-300">
             <!-- <img src="https://via.placeholder.com/400x200" alt="Blog Post" class="rounded-t-lg"> -->
             <div class="p-6">
                 <h3 class="text-2xl font-bold text-slate-800 mb-2">

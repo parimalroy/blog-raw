@@ -5,23 +5,23 @@ include('partial/header.php')
 ?>
 
 <!-- Search and Filter Form -->
-<section class="bg-white py-10">
+<section class="bg-sky-100 py-10">
     <div class="container mx-auto">
-        <form class="flex flex-col md:flex-row items-center gap-6">
+        <form action="/category-filter" method="POST" class="flex flex-col md:flex-row items-center gap-6">
             <!-- Search -->
-            <div class="flex-1 relative">
+            <!-- <div class="flex-1 relative">
                 <input type="text" name="search" placeholder="Search blogs..."
                     class="w-full px-4 py-3 border border-slate-300 rounded-full shadow-md focus:outline-none focus:ring focus:ring-slate-400" />
-            </div>
+            </div> -->
             <!-- Filter by Category -->
             <div class="flex-1">
                 <select name="category"
                     class="w-full px-4 py-3 border border-slate-300 rounded-full shadow-md focus:outline-none focus:ring focus:ring-slate-400">
                     <option value="">Filter by category</option>
-                    <option value="vuejs">Vue.js</option>
-                    <option value="javascript">JavaScript</option>
-                    <option value="frontend">Frontend</option>
-                    <option value="backend">Backend</option>
+                    <?php foreach ($categories as $category) : ?>
+                    <option value="<?= $category['id'] ?>"><?php echo $category['category_name'] ?></option>
+
+                    <?php endforeach ?>
                 </select>
             </div>
             <!-- Submit Button -->
@@ -33,52 +33,57 @@ include('partial/header.php')
             </div>
         </form>
     </div>
-</section>
-<!-- Blogs Section -->
-<section class="py-16 bg-slate-50">
-    <div class="container mx-auto">
-        <h1 class="text-4xl font-extrabold text-slate-900 text-center mb-10">Explore Our Blogs</h1>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-            <?php foreach ($posts as $post) { ?>
-            <!-- Blog Card -->
-            <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden transition duration-300">
+    <!-- </section> -->
+    <!-- Blogs Section -->
+    <section class="py-16 bg-sky-100">
+        <div class="container mx-auto">
+            <h1 class="text-4xl font-extrabold text-slate-900 text-center mb-10">Explore Our Blogs</h1>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <?php foreach ($posts as $post) { ?>
+                <!-- Blog Card -->
+                <div class="bg-white rounded-xl shadow-lg hover:shadow-2xl overflow-hidden transition duration-300">
 
-                <img src="images/<?php echo $post['cover_photo'] ?>" alt="Blog Post" class="w-full h-48 object-cover" />
-                <div class="p-6">
-                    <h3 class="text-2xl font-bold text-slate-800 mb-2"><?= $post['blog_title'] ?></h3>
-                    <p class="text-gray-600 mb-4"><?php echo htmlspecialchars(substr($post['content'], 0, 100)) ?></p>
-                    <a href="/details?id=<?php echo $post['id'] ?>"
-                        class="text-slate-800 font-medium hover:underline">Read More</a>
+                    <img src="images/<?php echo $post['cover_photo'] ?? false ?>" alt="Blog Post"
+                        class="w-full h-48 object-cover" />
+                    <div class="p-6">
+                        <h3 class="text-2xl font-bold text-slate-800 mb-2"><?= $post['blog_title'] ?? false ?></h3>
+                        <p class="text-gray-600 mb-4">
+                            <?php echo htmlspecialchars(substr($post['content'], 0, 100)) ?? false ?>
+                        </p>
+                        <a href="/details?id=<?php echo $post['id'] ?? false ?>"
+                            class="text-slate-800 font-medium hover:underline">Read More</a>
+                    </div>
                 </div>
+                <!-- Repeat similar cards for other blogs -->
+                <?php } ?>
             </div>
-            <!-- Repeat similar cards for other blogs -->
-            <?php } ?>
-        </div>
 
-        <!-- Pagination -->
-        <div class="mt-12 flex justify-center">
-            <nav aria-label="Pagination" class="flex space-x-2">
-                <!-- Previous Button -->
-                <a href="#" class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">
-                    Previous
-                </a>
-                <!-- Page Numbers -->
-                <a href="#" class="px-4 py-2 bg-slate-800 text-white rounded-full font-bold">1</a>
-                <a href="#"
-                    class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">2</a>
-                <a href="#"
-                    class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">3</a>
-                <span class="px-4 py-2 text-slate-400">...</span>
-                <a href="#"
-                    class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">10</a>
-                <!-- Next Button -->
-                <a href="#" class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">
-                    Next
-                </a>
-            </nav>
+            <!-- Pagination -->
+            <div class="mt-12 flex justify-center">
+                <nav aria-label="Pagination" class="flex space-x-2">
+                    <!-- Previous Button -->
+                    <a href="#"
+                        class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">
+                        Previous
+                    </a>
+                    <!-- Page Numbers -->
+                    <a href="#" class="px-4 py-2 bg-slate-800 text-white rounded-full font-bold">1</a>
+                    <a href="#"
+                        class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">2</a>
+                    <a href="#"
+                        class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">3</a>
+                    <span class="px-4 py-2 text-slate-400">...</span>
+                    <a href="#"
+                        class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">10</a>
+                    <!-- Next Button -->
+                    <a href="#"
+                        class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">
+                        Next
+                    </a>
+                </nav>
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- Footer -->
-<?php include('partial/footer.php') ?>
+    <!-- Footer -->
+    <?php include('partial/footer.php') ?>

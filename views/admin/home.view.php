@@ -13,17 +13,16 @@ include('partials/header.php')
     <!-- Main Content -->
     <main class="flex-grow">
         <!-- Header with Profile -->
-        <header class="flex items-center justify-between p-6 bg-white shadow-lg">
-            <h1 class="text-3xl font-bold text-slate-800">Dashboard</h1>
+        <header class="flex items-center justify-between p-6 bg-sky-700 shadow-lg">
+            <h1 class="text-3xl font-bold text-white">Dashboard</h1>
             <!-- Profile Dropdown -->
             <div class="relative">
 
                 <button id="profile-menu-button" class="flex items-center space-x-3 focus:outline-none">
-                    <a href="/" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Visit Site</a>
+                    <a href="/" class="block px-4 py-2 text-white">Visit Site</a>
 
                     <!-- <img src="https://via.placeholder.com/40" alt="Profile" class="w-10 h-10 rounded-full"> -->
-                    <span
-                        class="hidden md:block text-slate-800 font-medium"><?php echo $_SESSION['user']['name'] ?></span>
+                    <span class="hidden md:block text-white font-medium"><?php echo $_SESSION['user']['name'] ?></span>
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-600" viewBox="0 0 20 20"
                         fill="currentColor">
                         <path fill-rule="evenodd"
@@ -36,7 +35,9 @@ include('partials/header.php')
                     class="absolute right-0 mt-2 w-48 bg-white border border-slate-200 rounded-lg shadow-lg hidden">
                     <a href="/admin/profile" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Profile</a>
                     <a href="/admin/setting" class="block px-4 py-2 text-slate-700 hover:bg-slate-100">Settings</a>
-                    <a href="/logout" class="block px-4 py-2 text-red-600 hover:bg-red-50">Logout</a>
+                    <form action="/logout" method="post">
+                        <button class="block px-4 py-2 text-red-600 hover:bg-red-50">Logout</button>
+                    </form>
                 </div>
             </div>
         </header>
@@ -75,34 +76,35 @@ include('partials/header.php')
         <section id="blogs-section" class="p-6">
             <h2 class="text-2xl font-bold text-slate-800 mb-4">Manage Blogs</h2>
             <div class="mb-6">
-                <a href="/admin/create"
+                <a href="/admin/blog/create-blog"
                     class="px-6 py-3 bg-blue-600 text-white font-medium rounded-md hover:bg-blue-500 transition">Create
                     New Blog</a>
             </div>
-            <div class="overflow-x-auto bg-white rounded-lg shadow-lg p-4">
-                <table class="w-full border-collapse border border-slate-300">
-                    <thead class="bg-slate-800 text-white">
+            <div class="overflow-x-auto bg-sky-100 rounded-lg shadow-lg p-4">
+                <table class="w-full border-collapse border border-sky-300">
+                    <thead class="bg-sky-800 text-white">
                         <tr>
                             <th class="text-left py-3 px-4">Title</th>
                             <th class="text-left py-3 px-4">Author</th>
                             <th class="text-left py-3 px-4">Published</th>
-                            <th class="text-left py-3 px-4">Actions</th>
+                            <!-- <th class="text-left py-3 px-4">Actions</th> -->
                         </tr>
                     </thead>
                     <tbody>
                         <?php foreach ($posts as $post) : ?>
                         <tr class="hover:bg-slate-50">
-                            <td class="py-3 px-4"><?= $post['blog_title'] ?></td>
-                            <td class="py-3 px-4"><?= $post['author'] ?></td>
-                            <td class="py-3 px-4"><?= $post['publish_date'] ?></td>
-                            <td class="py-3 px-4 flex space-x-4">
-                                <a href="#" class="text-blue-600 hover:underline">Edit</a>
-                                <form action="/admin/delete" method="POST">
+                            <td class="py-3 px-4"><?= $post['blog_title'] ?? false ?></td>
+                            <td class="py-3 px-4"><?= $post['author'] ?? false ?></td>
+                            <td class="py-3 px-4"><?= $post['publish_date'] ?? false ?></td>
+                            <!-- <td class="py-3 px-4 flex space-x-4">
+                                <a href="/admin/blog/edit-blog?id=<?= $post['id'] ?>"
+                                    class="text-blue-600 hover:underline">Edit</a>
+                                <form action="/admin/blog/delete-blog" method="POST">
                                     <input type="hidden" name="id" value="<?= $post['id'] ?>">
-                                    <button class="text-sm text-red-500">Delete</button>
-                                    <!-- <a href="#" class="text-red-600 hover:underline">Delete</a> -->
-                                </form>
-                            </td>
+                                    <button class="text-sm text-red-500">Delete</button> -->
+                            <!-- <a href="#" class="text-red-600 hover:underline">Delete</a> -->
+                            <!-- </form> -->
+                            <!-- </td> -->
                         </tr>
                         <?php endforeach ?>
                         <!-- Repeat similar rows -->
