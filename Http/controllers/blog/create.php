@@ -6,7 +6,7 @@ use core\Database;
 
 $db = App::resolve(Database::class);
 
-$categories = $db->query("SELECT * FROM categories")->fetchAll();
+$categories = $db->query("SELECT * FROM categories")->get();
 view('blog', 'create', [
     'errors' => Session::get('errors'),
     'categories' => $categories

@@ -13,12 +13,12 @@ $db = App::resolve(Database::class);
 $post = $db->query('SELECT *
 FROM posts p
 INNER JOIN categories c
-ON p.category_id = c.id where p.id = :id', ['id' => $_GET['id']])->fetch();
+ON p.category_id = c.id where p.id = :id', ['id' => $_GET['id']])->find();
 
 $reletedPosts = $db->query("SELECT *
 FROM posts p
 INNER JOIN categories c
-ON p.category_id = c.id where p.category_id= :id", ['id' => $post['id']])->fetchAll();
+ON p.category_id = c.id where p.category_id= :id", ['id' => $post['id']])->get();
 // dd($reletedPosts);
 // include('views/front/details.php');
 view(

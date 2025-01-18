@@ -68,7 +68,7 @@ include('partials/header.php')
                     <label for="category" class="block text-slate-700 font-medium mb-2">Category</label>
                     <select id="category" name="category_id"
                         class="w-full px-4 py-2 border border-slate-300 rounded-lg focus:outline-none focus:ring focus:ring-slate-400">
-                        <option value="<?= $cate['id'] ?>"><?= $cate['category_name'] ?></option>
+                        <!-- <option value="<?= $cate['id'] ?>"><?= $cate['category_name'] ?></option> -->
                         <?php foreach ($categores as $category) : ?>
                         <option value="<?= $category['id'] ?>"><?= $category['category_name'] ?>
                         </option>

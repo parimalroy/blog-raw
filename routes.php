@@ -16,7 +16,6 @@ $router->get('/admin/blog/home-blog', 'blog/home.php')->only('auth');
 
 $router->get('/admin/category/create-category', 'category/create.php')->only('auth');
 $router->post('/admin/category/store-category', 'category/store.php')->only('auth');
-// $router->get('/admin/category', 'front/category.php');
 
 $router->get('/', 'front/home.php');
 $router->get('/list', 'front/list.php');

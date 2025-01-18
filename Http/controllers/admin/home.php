@@ -7,13 +7,13 @@ $db = new Database($config['database']);
 
 $posts = $db->query('select*from posts where users_id= :users_id', [
     'users_id' => $_SESSION['user']['id']
-])->fetchAll();
+])->get();
 
 $totalPost = $db->query('select count(blog_title )from posts where users_id= :users_id', [
     'users_id' => $_SESSION['user']['id']
-])->fetch();
+])->find();
 
-$blogTitle = $db->query('select blog_title from posts where users_id= :users_id order by  id desc limit 1', ['users_id' => $_SESSION['user']['id']])->fetch();
+$blogTitle = $db->query('select blog_title from posts where users_id= :users_id order by  id desc limit 1', ['users_id' => $_SESSION['user']['id']])->find();
 
 
 // include("views/admin/home.php");

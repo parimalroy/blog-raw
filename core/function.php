@@ -40,6 +40,15 @@ function logout()
     setcookie('PHPSESSID', '', time() - 3600, $params['path'], $params['domain'], $params['secure'], $params['httponly']);
 }
 
+function abort($code = 404)
+{
+    http_response_code($code);
+
+    require base_path("views/{$code}.php");
+
+    die();
+}
+
 function old($key, $default = '')
 {
     return Core\Session::get('old')[$key] ?? $default;

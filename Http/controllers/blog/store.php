@@ -41,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     // photo upload
 
 
-    $categories = $db->query("SELECT * FROM categories")->fetchAll();
+    $categories = $db->query("SELECT * FROM categories")->get();
     // dd($categories);
     // var_dump($file_name);
     if (empty($errors)) {
@@ -70,5 +70,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 Session::flash('errors', $errors);
 Session::flash('old', [
     'title' => $_POST['title'],
+    'publish_date' => $_POST['publish_date'],
+
 ]);
 return redirect('/admin/blog/create-blog');

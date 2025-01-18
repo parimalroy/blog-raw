@@ -16,7 +16,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $category_name = strtolower($_POST['categories_name']);
     $category_capital = ucwords($category_name);
 
-    $exits_Category = $db->query('select * from categories where category_name = :category_name', ['category_name' => $category_capital])->fetchAll();
+    $exits_Category = $db->query('select * from categories where category_name = :category_name', ['category_name' => $category_capital])->get();
     if (!$exits_Category) {
         if (empty($errors)) {
             $db->query("insert into categories(category_name) values(:category_name)", ["category_name" => $category_capital]);

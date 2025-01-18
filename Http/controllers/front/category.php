@@ -4,10 +4,10 @@ use core\App;
 use core\Database;
 
 $db = App::resolve(Database::class);
-$categories = $db->query('SELECT * FROM categories')->fetchAll();
+$categories = $db->query('SELECT * FROM categories')->get();
 // dd($categories);
 
-$counts = $db->query("select category_name, count(category_id)from categories as c inner join posts as p on c.id=p.category_id where p.category_id=c.id group by category_name")->fetchAll();
+$counts = $db->query("select category_name, count(category_id)from categories as c inner join posts as p on c.id=p.category_id where p.category_id=c.id group by category_name")->get();
 // dd($counts);
 // dd($count['count(category_id)']);
 view('front', 'category', [

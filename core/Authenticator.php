@@ -9,7 +9,7 @@ class Authenticator
         $user = App::resolve(Database::class)
             ->query('select id,name,email,password from users where email = :email', [
                 'email' => $email
-            ])->fetch();
+            ])->find();
 
         if ($user) {
             if (password_verify($password, $user['password'])) {
@@ -31,7 +31,7 @@ class Authenticator
         $db = App::resolve(Database::class);
         $user = $db->query('select * from users where email = :email', [
             'email' => $email
-        ])->fetch();
+        ])->find();
         if ($user) {
             $_SESSION['status'] = 'your are old member!';
             $_SESSION['status_code'] = 'error';

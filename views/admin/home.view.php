@@ -55,17 +55,17 @@ include('partials/header.php')
         <section id="users-section" class="p-6">
             <div class="bg-white p-6 rounded-lg shadow-lg">
                 <h2 class="text-2xl font-bold text-slate-800 mb-4">Your Posts Summary</h2>
-                <i class="border-r-4">
-                    <span class="text-base font-bold text-blue-600 mx-4">Published Post:
+                <i class="border-r-4 border-2 p-4 mt-4">
+                    <span class="text-base font-bold text-blue-600 mx-4">Published Post :
                         <?= $totalPost['count(blog_title )'] ?? false ?></span>
                 </i>
-                <i class="border-r-4">
+                <!-- <i class="border-r-4">
                     <span class="text-base font-bold text-red-600 mx-4">Deleted Post:
                         <?= $_SESSION['count'] ?? 0 ?></span>
-                </i>
-                <i class="border-r-4">
-                    <span class="text-base font-bold text-green-600 mx-4">Latest Post Title:
-                        <?= $blogTitle['blog_title'] ?? false ?></span>
+                </i> -->
+                <i class="border-r-4 border-2 p-4 mt-4">
+                    <span class="text-base font-bold text-green-600 mx-4 ">Latest Post Title :</span>
+                    <span class="text-green-600 font-bold "> <?= $blogTitle['blog_title'] ?? false ?></span>
                 </i>
                 <!-- <p class="text-slate-600">User management functionality will go here.</p> -->
             </div>

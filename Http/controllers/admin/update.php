@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = $db->query("UPDATE  users SET name= :name ,email= :email where id=:id", [
             'id' => $_SESSION['user']['id'],
             'name'   => $_POST['name'],
-            'email' => $_POST['email'],
+            'email' => $_POST['email']
         ]);
         $_SESSION['user']['name'] = $_POST['name'];
         $_SESSION['status'] = 'profile Update Success !';

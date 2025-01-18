@@ -62,24 +62,28 @@ include('partial/header.php')
             <div class="mt-12 flex justify-center">
                 <nav aria-label="Pagination" class="flex space-x-2">
                     <!-- Previous Button -->
-                    <a href="#"
+                    <!-- <a href="#"
                         class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">
                         Previous
-                    </a>
+                    </a> -->
                     <!-- Page Numbers -->
-                    <a href="#" class="px-4 py-2 bg-slate-800 text-white rounded-full font-bold">1</a>
-                    <a href="#"
+                    <?php if (isset($total_page)): for ($i = 1; $i <= $total_page; $i++) : ?>
+                    <a href="/list?page=<?php echo $i  ?>"
+                        class="px-4 py-2 bg-slate-800 text-white rounded-full font-bold"><?php echo $i ?? 1 ?></a>
+                    <?php endfor;
+                    endif ?>
+                    <!-- <a href="#"
                         class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">2</a>
                     <a href="#"
                         class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">3</a>
                     <span class="px-4 py-2 text-slate-400">...</span>
                     <a href="#"
-                        class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">10</a>
+                        class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">10</a> -->
                     <!-- Next Button -->
-                    <a href="#"
+                    <!-- <a href="#"
                         class="px-4 py-2 bg-slate-200 text-slate-600 rounded-full hover:bg-slate-300 transition">
                         Next
-                    </a>
+                    </a> -->
                 </nav>
             </div>
         </div>
